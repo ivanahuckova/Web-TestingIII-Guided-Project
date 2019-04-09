@@ -11,7 +11,7 @@ describe('Login', () => {
 
   it('can change input values', () => {
     // we can fire change events on inputs
-    // and we can grab inputs by their placeholder texts
+    // and we can grab inputs by their placeholder texts or their values
   });
 
   it('can login successfully', async () => {
