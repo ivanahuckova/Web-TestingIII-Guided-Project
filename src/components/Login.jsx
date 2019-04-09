@@ -1,7 +1,6 @@
 import React from 'react';
 import axios from 'axios';
 
-
 export default class Login extends React.Component {
   state = { flashMessage: '', username: '', password: '' }
 
