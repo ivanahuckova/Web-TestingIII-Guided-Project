@@ -62,7 +62,13 @@ describe('Login', () => {
       { target: { value: '.' } },
     );
 
+    rt.fireEvent.change(
+      wrap.getByPlaceholderText('password'),
+      { target: { value: '.' } },
+    );
+
     expect(wrap.getByPlaceholderText('username').value).toBe('');
+    expect(wrap.getByPlaceholderText('password').value).toBe('');
   });
 
   it('displays login button if username and password', () => {
