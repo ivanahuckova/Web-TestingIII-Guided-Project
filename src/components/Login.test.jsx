@@ -9,6 +9,7 @@ describe('Login', () => {
     const wrap = rt.render(<Login />);
     const button = wrap.queryByTestId(/loginButton/i);
     expect(button).toBeFalsy();
+    expect(wrap.asFragment()).toMatchSnapshot();
   });
 
   // it('can change input values', () => {
@@ -39,9 +40,11 @@ describe('Login', () => {
 
     rt.fireEvent.change(usernameInput, { target: { value: inputValue } });
     expect(wrap.getByPlaceholderText('username').value).toBe(inputValue);
+    expect(wrap.asFragment()).toMatchSnapshot();
 
     rt.fireEvent.change(passwordInput, { target: { value: passValue } });
     expect(wrap.getByPlaceholderText('password').value).toBe(passValue);
+    expect(wrap.asFragment()).toMatchSnapshot();
   });
 
   it('displays login button if username and password', () => {
@@ -55,6 +58,7 @@ describe('Login', () => {
     );
 
     expect(wrap.queryByTestId(/loginButton/i)).toBeFalsy();
+    expect(wrap.asFragment()).toMatchSnapshot();
 
     rt.fireEvent.change(
       passwordInput,
@@ -62,6 +66,7 @@ describe('Login', () => {
     );
 
     expect(wrap.queryByTestId(/loginButton/i)).toBeTruthy();
+    expect(wrap.asFragment()).toMatchSnapshot();
   });
 
   it('can login successfully', async () => {

@@ -26,6 +26,7 @@ export default class Login extends React.Component {
     return (
       <div>
         <div>
+          <h1>Login Screen</h1>
           <label htmlFor='usernameInput'>username</label>
           <input
             id='usernameInput'
@@ -47,7 +48,7 @@ export default class Login extends React.Component {
         {
           this.state.username && this.state.password &&
           <button onClick={this.onLogin} data-testid='loginButton'>
-            Login
+            Login Now!
           </button>
         }
         <div>{this.state.flashMessage}</div>

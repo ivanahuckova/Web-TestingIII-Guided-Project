@@ -4,6 +4,199 @@ exports[`Login can change input values 1`] = `
 <DocumentFragment>
   <div>
     <div>
+      <h1>
+        Login Screen
+      </h1>
+      <label
+        for="usernameInput"
+      >
+        username
+      </label>
+      <input
+        class="pretty-input"
+        id="usernameInput"
+        placeholder="username"
+        type="text"
+      />
+      <br />
+      <label
+        for="passwordInput"
+      >
+        password
+      </label>
+      <input
+        class="pretty-input"
+        id="passwordInput"
+        placeholder="password"
+        type="text"
+      />
+    </div>
+    <div />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Login can change input values 2`] = `
+<DocumentFragment>
+  <div>
+    <div>
+      <h1>
+        Login Screen
+      </h1>
+      <label
+        for="usernameInput"
+      >
+        username
+      </label>
+      <input
+        class="pretty-input"
+        id="usernameInput"
+        placeholder="username"
+        type="text"
+      />
+      <br />
+      <label
+        for="passwordInput"
+      >
+        password
+      </label>
+      <input
+        class="pretty-input"
+        id="passwordInput"
+        placeholder="password"
+        type="text"
+      />
+    </div>
+    <div />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Login can change input values 3`] = `
+<DocumentFragment>
+  <div>
+    <div>
+      <h1>
+        Login Screen
+      </h1>
+      <label
+        for="usernameInput"
+      >
+        username
+      </label>
+      <input
+        class="pretty-input"
+        id="usernameInput"
+        placeholder="username"
+        type="text"
+      />
+      <br />
+      <label
+        for="passwordInput"
+      >
+        password
+      </label>
+      <input
+        class="pretty-input"
+        id="passwordInput"
+        placeholder="password"
+        type="text"
+      />
+    </div>
+    <button
+      data-testid="loginButton"
+    >
+      Login Now!
+    </button>
+    <div />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Login displays login button if username and password 1`] = `
+<DocumentFragment>
+  <div>
+    <div>
+      <h1>
+        Login Screen
+      </h1>
+      <label
+        for="usernameInput"
+      >
+        username
+      </label>
+      <input
+        class="pretty-input"
+        id="usernameInput"
+        placeholder="username"
+        type="text"
+      />
+      <br />
+      <label
+        for="passwordInput"
+      >
+        password
+      </label>
+      <input
+        class="pretty-input"
+        id="passwordInput"
+        placeholder="password"
+        type="text"
+      />
+    </div>
+    <div />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Login displays login button if username and password 2`] = `
+<DocumentFragment>
+  <div>
+    <div>
+      <h1>
+        Login Screen
+      </h1>
+      <label
+        for="usernameInput"
+      >
+        username
+      </label>
+      <input
+        class="pretty-input"
+        id="usernameInput"
+        placeholder="username"
+        type="text"
+      />
+      <br />
+      <label
+        for="passwordInput"
+      >
+        password
+      </label>
+      <input
+        class="pretty-input"
+        id="passwordInput"
+        placeholder="password"
+        type="text"
+      />
+    </div>
+    <button
+      data-testid="loginButton"
+    >
+      Login Now!
+    </button>
+    <div />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Login displays no login button if no username or no password 1`] = `
+<DocumentFragment>
+  <div>
+    <div>
+      <h1>
+        Login Screen
+      </h1>
       <label
         for="usernameInput"
       >
