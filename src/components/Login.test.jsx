@@ -11,9 +11,13 @@ describe('Login', () => {
     expect(button).toBeFalsy();
   });
 
+  it('can change input values', () => {
+    // we can fire change events on inputs
+    // and we can grab inputs by their placeholder texts or their values
+  });
+
   it('displays login button if username and password', () => {
     const wrap = rt.render(<Login />);
-    const button = wrap.queryByTestId(/loginButton/i);
     const usernameInput = wrap.getByLabelText('username');
     const passwordInput = wrap.getByLabelText('password');
 
@@ -22,19 +26,14 @@ describe('Login', () => {
       { target: { value: 'A' } },
     );
 
-    expect(button).toBeFalsy();
+    expect(wrap.queryByTestId(/loginButton/i)).toBeFalsy();
 
     rt.fireEvent.change(
       passwordInput,
-      { target: { value: 'A' } },
+      { target: { value: 'B' } },
     );
 
-    expect(button).toBeTruthy();
-  });
-
-  it('can change input values', () => {
-    // we can fire change events on inputs
-    // and we can grab inputs by their placeholder texts or their values
+    expect(wrap.queryByTestId(/loginButton/i)).toBeTruthy();
   });
 
   it('can login successfully', async () => {

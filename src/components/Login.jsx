@@ -45,7 +45,7 @@ export default class Login extends React.Component {
           />
         </div>
         {
-          false &&
+          this.state.username && this.state.password &&
           <button onClick={this.onLogin} data-testid='loginButton'>
             Login
           </button>
