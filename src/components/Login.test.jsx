@@ -70,7 +70,12 @@ describe('Login', () => {
   });
 
   it('can login successfully', async () => {
-    // see the greeting render
+    // create a wrapper
+    // change username to Alex
+    // change password to > 0 length
+    // click button
+    // await flash message to appear
+    // assert 'welcome' message is there
   });
 
   it('can fail miserably', async () => {
