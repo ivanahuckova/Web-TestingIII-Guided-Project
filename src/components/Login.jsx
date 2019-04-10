@@ -5,7 +5,9 @@ export default class Login extends React.Component {
   state = { flashMessage: '', username: '', password: '' }
 
   onChange = (field, value) => {
-    this.setState({ [field]: value });
+    if (/^[a-z0-9]+$/i.test(value)) {
+      this.setState({ [field]: value });
+    }
   }
 
   onLogin = () => {
@@ -30,6 +32,7 @@ export default class Login extends React.Component {
           <label htmlFor='usernameInput'>username</label>
           <input
             id='usernameInput'
+            value={this.state.username}
             className='pretty-input'
             onChange={e => this.onChange('username', e.target.value)}
             placeholder='username'
@@ -39,6 +42,7 @@ export default class Login extends React.Component {
           <label htmlFor='passwordInput'>password</label>
           <input
             id='passwordInput'
+            value={this.state.password}
             className='pretty-input'
             onChange={e => this.onChange('password', e.target.value)}
             placeholder='password'

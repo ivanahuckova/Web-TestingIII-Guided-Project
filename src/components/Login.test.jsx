@@ -56,6 +56,15 @@ describe('Login', () => {
     expect(wrap.asFragment()).toMatchSnapshot();
   });
 
+  it('disallows non-alphanumeric usernames or passwords', () => {
+    rt.fireEvent.change(
+      wrap.getByPlaceholderText('username'),
+      { target: { value: '.' } },
+    );
+
+    expect(wrap.getByPlaceholderText('username').value).toBe('');
+  });
+
   it('displays login button if username and password', () => {
     wrap = setUpWrap({ lady: 'gaga' });
 

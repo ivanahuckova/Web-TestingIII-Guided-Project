@@ -17,6 +17,7 @@ exports[`Login can change input values 1`] = `
         id="usernameInput"
         placeholder="username"
         type="text"
+        value=""
       />
       <br />
       <label
@@ -29,6 +30,7 @@ exports[`Login can change input values 1`] = `
         id="passwordInput"
         placeholder="password"
         type="text"
+        value=""
       />
     </div>
     <div />
@@ -53,6 +55,7 @@ exports[`Login can change input values 2`] = `
         id="usernameInput"
         placeholder="username"
         type="text"
+        value="name"
       />
       <br />
       <label
@@ -65,6 +68,7 @@ exports[`Login can change input values 2`] = `
         id="passwordInput"
         placeholder="password"
         type="text"
+        value=""
       />
     </div>
     <div />
@@ -89,6 +93,7 @@ exports[`Login can change input values 3`] = `
         id="usernameInput"
         placeholder="username"
         type="text"
+        value="name"
       />
       <br />
       <label
@@ -101,6 +106,7 @@ exports[`Login can change input values 3`] = `
         id="passwordInput"
         placeholder="password"
         type="text"
+        value="secretPassword"
       />
     </div>
     <button
@@ -130,6 +136,7 @@ exports[`Login displays login button if username and password 1`] = `
         id="usernameInput"
         placeholder="username"
         type="text"
+        value="A"
       />
       <br />
       <label
@@ -142,6 +149,7 @@ exports[`Login displays login button if username and password 1`] = `
         id="passwordInput"
         placeholder="password"
         type="text"
+        value=""
       />
     </div>
     <div />
@@ -166,6 +174,7 @@ exports[`Login displays login button if username and password 2`] = `
         id="usernameInput"
         placeholder="username"
         type="text"
+        value="A"
       />
       <br />
       <label
@@ -178,6 +187,7 @@ exports[`Login displays login button if username and password 2`] = `
         id="passwordInput"
         placeholder="password"
         type="text"
+        value="B"
       />
     </div>
     <button
@@ -207,6 +217,7 @@ exports[`Login displays no login button if no username or no password 1`] = `
         id="usernameInput"
         placeholder="username"
         type="text"
+        value=""
       />
       <br />
       <label
@@ -219,6 +230,7 @@ exports[`Login displays no login button if no username or no password 1`] = `
         id="passwordInput"
         placeholder="password"
         type="text"
+        value=""
       />
     </div>
     <div />
