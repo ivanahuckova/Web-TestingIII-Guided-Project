@@ -26,22 +26,30 @@ export default class Login extends React.Component {
     return (
       <div>
         <div>
-          username <input
+          <label htmlFor='usernameInput'>username</label>
+          <input
+            id='usernameInput'
             className='input'
             onChange={e => this.onChange('username', e.target.value)}
             placeholder='username'
             type="text"
-          /> <br />
-          password <input
+          />
+          <br />
+          <label htmlFor='passwordInput'>password</label>
+          <input
+            id='passwordInput'
             className='input'
             onChange={e => this.onChange('password', e.target.value)}
             placeholder='password'
             type="text"
           />
         </div>
-        <button onClick={this.onLogin}>
-          Login
-        </button>
+        {
+          false &&
+          <button onClick={this.onLogin} data-testid='loginButton'>
+            Login
+          </button>
+        }
         <div>{this.state.flashMessage}</div>
       </div>
     );
