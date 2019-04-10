@@ -12,8 +12,19 @@ describe('Login', () => {
   });
 
   it('can change input values', () => {
-    // we can fire change events on inputs
-    // and we can grab inputs by their placeholder texts or their values
+    const wrap = rt.render(<Login />);
+    rt.fireEvent.change(
+      wrap.getByPlaceholderText('username'),
+      { target: { value: 'foo' } },
+    );
+
+    rt.fireEvent.change(
+      wrap.getByPlaceholderText('password'),
+      { target: { value: 'bar' } },
+    );
+
+    expect(wrap.getByDisplayValue('foo'));
+    expect(wrap.getByDisplayValue('bar'));
   });
 
   it('displays login button if username and password', () => {
