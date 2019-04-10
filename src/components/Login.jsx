@@ -26,7 +26,7 @@ export default class Login extends React.Component {
     return (
       <div>
         <div>
-          <h1>Login Screen</h1>
+          <h1>Login Screen {this.props.lady}</h1>
           <label htmlFor='usernameInput'>username</label>
           <input
             id='usernameInput'

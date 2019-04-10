@@ -4,9 +4,19 @@ import Login from './Login';
 
 afterEach(rt.cleanup);
 
+function setUpWrap(props = {}) {
+  rt.cleanup();
+  return rt.render(<Login {...props} />);
+}
+
 describe('Login', () => {
+  let wrap;
+
+  beforeEach(() => {
+    wrap = setUpWrap();
+  });
+
   it('displays no login button if no username or no password', () => {
-    const wrap = rt.render(<Login />);
     const button = wrap.queryByTestId(/loginButton/i);
     expect(button).toBeFalsy();
     expect(wrap.asFragment()).toMatchSnapshot();
@@ -29,7 +39,6 @@ describe('Login', () => {
   // });
 
   it('can change input values', () => {
-    const wrap = rt.render(<Login />);
     expect(wrap.asFragment()).toMatchSnapshot();
 
     const usernameInput = wrap.getByPlaceholderText('username');
@@ -48,7 +57,8 @@ describe('Login', () => {
   });
 
   it('displays login button if username and password', () => {
-    const wrap = rt.render(<Login />);
+    wrap = setUpWrap({ lady: 'gaga' });
+
     const usernameInput = wrap.getByLabelText('username');
     const passwordInput = wrap.getByLabelText('password');
 
@@ -70,15 +80,44 @@ describe('Login', () => {
   });
 
   it('can login successfully', async () => {
-    // create a wrapper
+    // grab the component
     // change username to Alex
-    // change password to > 0 length
-    // click button
-    // await flash message to appear
-    // assert 'welcome' message is there
+    rt.fireEvent.change(
+      wrap.getByPlaceholderText('username'),
+      { target: { value: 'Alex' } },
+    );
+    // change password to be longer than 0
+    rt.fireEvent.change(wrap.getByLabelText('password'), {
+      target: { value: 'secret' },
+    });
+    // click the button
+    rt.fireEvent.click(
+      wrap.queryByTestId(/loginButton/i),
+    );
+    // await flash msg to appear
+    await wrap.findByText(/welcome/i);
+    // assert message
+    expect(wrap.getByText(/welcome/i));
   });
 
   it('can fail miserably', async () => {
-    // see the error render
+    // grab the component
+    // change username to Luke
+    rt.fireEvent.change(
+      wrap.getByPlaceholderText('username'),
+      { target: { value: 'Luke' } },
+    );
+    // change password to be longer than 0
+    rt.fireEvent.change(wrap.getByLabelText('password'), {
+      target: { value: 'secret' },
+    });
+    // click the button
+    rt.fireEvent.click(
+      wrap.queryByTestId(/loginButton/i),
+    );
+    // await flash msg to appear
+    await wrap.findByText(/invalid/i);
+    // assert message
+    expect(wrap.getByText(/invalid/i));
   });
 });

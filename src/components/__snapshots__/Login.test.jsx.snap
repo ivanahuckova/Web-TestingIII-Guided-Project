@@ -5,7 +5,7 @@ exports[`Login can change input values 1`] = `
   <div>
     <div>
       <h1>
-        Login Screen
+        Login Screen 
       </h1>
       <label
         for="usernameInput"
@@ -41,7 +41,7 @@ exports[`Login can change input values 2`] = `
   <div>
     <div>
       <h1>
-        Login Screen
+        Login Screen 
       </h1>
       <label
         for="usernameInput"
@@ -77,7 +77,7 @@ exports[`Login can change input values 3`] = `
   <div>
     <div>
       <h1>
-        Login Screen
+        Login Screen 
       </h1>
       <label
         for="usernameInput"
@@ -118,7 +118,7 @@ exports[`Login displays login button if username and password 1`] = `
   <div>
     <div>
       <h1>
-        Login Screen
+        Login Screen gaga
       </h1>
       <label
         for="usernameInput"
@@ -154,7 +154,7 @@ exports[`Login displays login button if username and password 2`] = `
   <div>
     <div>
       <h1>
-        Login Screen
+        Login Screen gaga
       </h1>
       <label
         for="usernameInput"
@@ -195,7 +195,7 @@ exports[`Login displays no login button if no username or no password 1`] = `
   <div>
     <div>
       <h1>
-        Login Screen
+        Login Screen 
       </h1>
       <label
         for="usernameInput"
