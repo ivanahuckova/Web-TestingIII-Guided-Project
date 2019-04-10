@@ -2,19 +2,20 @@ import React from 'react';
 import axios from 'axios';
 
 export default class Login extends React.Component {
-  state = { flashMessage: '', username: '', password: '' }
+  state = { flashMessage: '', username: '', password: '' };
 
   onChange = (field, value) => {
     if (/^[a-z0-9]+$/i.test(value)) {
       this.setState({ [field]: value });
     }
-  }
+  };
 
   onLogin = () => {
-    axios.post('login', {
-      username: this.state.username,
-      password: this.state.password,
-    })
+    axios
+      .post('login', {
+        username: this.state.username,
+        password: this.state.password,
+      })
       .then(res => {
         localStorage.setItem('token', res.data.token);
         this.setState({ flashMessage: `Welcome, ${res.data.username}` });
@@ -22,39 +23,38 @@ export default class Login extends React.Component {
       .catch(res => {
         this.setState({ flashMessage: res.message });
       });
-  }
+  };
 
   render() {
     return (
       <div>
         <div>
           <h1>Login Screen {this.props.lady}</h1>
-          <label htmlFor='usernameInput'>username</label>
+          <label htmlFor="usernameInput">username</label>
           <input
-            id='usernameInput'
+            id="usernameInput"
             value={this.state.username}
-            className='pretty-input'
+            className="pretty-input"
             onChange={e => this.onChange('username', e.target.value)}
-            placeholder='username'
+            placeholder="username"
             type="text"
           />
           <br />
-          <label htmlFor='passwordInput'>password</label>
+          <label htmlFor="passwordInput">password</label>
           <input
-            id='passwordInput'
+            id="passwordInput"
             value={this.state.password}
-            className='pretty-input'
+            className="pretty-input"
             onChange={e => this.onChange('password', e.target.value)}
-            placeholder='password'
+            placeholder="password"
             type="text"
           />
         </div>
-        {
-          this.state.username && this.state.password &&
-          <button onClick={this.onLogin} data-testid='loginButton'>
+        {this.state.username && this.state.password && (
+          <button onClick={this.onLogin} data-testid="loginButton">
             Login Now!
           </button>
-        }
+        )}
         <div>{this.state.flashMessage}</div>
       </div>
     );

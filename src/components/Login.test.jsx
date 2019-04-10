@@ -22,22 +22,6 @@ describe('Login', () => {
     expect(wrap.asFragment()).toMatchSnapshot();
   });
 
-  // it('can change input values', () => {
-  //   const wrap = rt.render(<Login />);
-  //   rt.fireEvent.change(
-  //     wrap.getByPlaceholderText('username'),
-  //     { target: { value: 'foo' } },
-  //   );
-
-  //   rt.fireEvent.change(
-  //     wrap.getByPlaceholderText('password'),
-  //     { target: { value: 'bar' } },
-  //   );
-
-  //   expect(wrap.getByDisplayValue('foo'));
-  //   expect(wrap.getByDisplayValue('bar'));
-  // });
-
   it('can change input values', () => {
     expect(wrap.asFragment()).toMatchSnapshot();
 
@@ -57,15 +41,9 @@ describe('Login', () => {
   });
 
   it('disallows non-alphanumeric usernames or passwords', () => {
-    rt.fireEvent.change(
-      wrap.getByPlaceholderText('username'),
-      { target: { value: '.' } },
-    );
+    rt.fireEvent.change(wrap.getByPlaceholderText('username'), { target: { value: '.' } });
 
-    rt.fireEvent.change(
-      wrap.getByPlaceholderText('password'),
-      { target: { value: '.' } },
-    );
+    rt.fireEvent.change(wrap.getByPlaceholderText('password'), { target: { value: '.' } });
 
     expect(wrap.getByPlaceholderText('username').value).toBe('');
     expect(wrap.getByPlaceholderText('password').value).toBe('');
@@ -77,18 +55,12 @@ describe('Login', () => {
     const usernameInput = wrap.getByLabelText('username');
     const passwordInput = wrap.getByLabelText('password');
 
-    rt.fireEvent.change(
-      usernameInput,
-      { target: { value: 'A' } },
-    );
+    rt.fireEvent.change(usernameInput, { target: { value: 'A' } });
 
     expect(wrap.queryByTestId(/loginButton/i)).toBeFalsy();
     expect(wrap.asFragment()).toMatchSnapshot();
 
-    rt.fireEvent.change(
-      passwordInput,
-      { target: { value: 'B' } },
-    );
+    rt.fireEvent.change(passwordInput, { target: { value: 'B' } });
 
     expect(wrap.queryByTestId(/loginButton/i)).toBeTruthy();
     expect(wrap.asFragment()).toMatchSnapshot();
@@ -97,18 +69,13 @@ describe('Login', () => {
   it('can login successfully', async () => {
     // grab the component
     // change username to Alex
-    rt.fireEvent.change(
-      wrap.getByPlaceholderText('username'),
-      { target: { value: 'Alex' } },
-    );
+    rt.fireEvent.change(wrap.getByPlaceholderText('username'), { target: { value: 'Alex' } });
     // change password to be longer than 0
     rt.fireEvent.change(wrap.getByLabelText('password'), {
       target: { value: 'secret' },
     });
     // click the button
-    rt.fireEvent.click(
-      wrap.queryByTestId(/loginButton/i),
-    );
+    rt.fireEvent.click(wrap.queryByTestId(/loginButton/i));
     // await flash msg to appear
     await wrap.findByText(/welcome/i);
     // assert message
@@ -118,18 +85,13 @@ describe('Login', () => {
   it('can fail miserably', async () => {
     // grab the component
     // change username to Luke
-    rt.fireEvent.change(
-      wrap.getByPlaceholderText('username'),
-      { target: { value: 'Luke' } },
-    );
+    rt.fireEvent.change(wrap.getByPlaceholderText('username'), { target: { value: 'Luke' } });
     // change password to be longer than 0
     rt.fireEvent.change(wrap.getByLabelText('password'), {
       target: { value: 'secret' },
     });
     // click the button
-    rt.fireEvent.click(
-      wrap.queryByTestId(/loginButton/i),
-    );
+    rt.fireEvent.click(wrap.queryByTestId(/loginButton/i));
     // await flash msg to appear
     await wrap.findByText(/invalid/i);
     // assert message
