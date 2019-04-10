@@ -29,7 +29,7 @@ export default class Login extends React.Component {
           <label htmlFor='usernameInput'>username</label>
           <input
             id='usernameInput'
-            className='input'
+            className='pretty-input'
             onChange={e => this.onChange('username', e.target.value)}
             placeholder='username'
             type="text"
@@ -38,7 +38,7 @@ export default class Login extends React.Component {
           <label htmlFor='passwordInput'>password</label>
           <input
             id='passwordInput'
-            className='input'
+            className='pretty-input'
             onChange={e => this.onChange('password', e.target.value)}
             placeholder='password'
             type="text"

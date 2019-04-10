@@ -29,6 +29,8 @@ describe('Login', () => {
 
   it('can change input values', () => {
     const wrap = rt.render(<Login />);
+    expect(wrap.asFragment()).toMatchSnapshot();
+
     const usernameInput = wrap.getByPlaceholderText('username');
     const passwordInput = wrap.getByPlaceholderText('password');
 
