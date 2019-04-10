@@ -11,20 +11,35 @@ describe('Login', () => {
     expect(button).toBeFalsy();
   });
 
+  // it('can change input values', () => {
+  //   const wrap = rt.render(<Login />);
+  //   rt.fireEvent.change(
+  //     wrap.getByPlaceholderText('username'),
+  //     { target: { value: 'foo' } },
+  //   );
+
+  //   rt.fireEvent.change(
+  //     wrap.getByPlaceholderText('password'),
+  //     { target: { value: 'bar' } },
+  //   );
+
+  //   expect(wrap.getByDisplayValue('foo'));
+  //   expect(wrap.getByDisplayValue('bar'));
+  // });
+
   it('can change input values', () => {
     const wrap = rt.render(<Login />);
-    rt.fireEvent.change(
-      wrap.getByPlaceholderText('username'),
-      { target: { value: 'foo' } },
-    );
+    const usernameInput = wrap.getByPlaceholderText('username');
+    const passwordInput = wrap.getByPlaceholderText('password');
 
-    rt.fireEvent.change(
-      wrap.getByPlaceholderText('password'),
-      { target: { value: 'bar' } },
-    );
+    const inputValue = 'name';
+    const passValue = 'secretPassword';
 
-    expect(wrap.getByDisplayValue('foo'));
-    expect(wrap.getByDisplayValue('bar'));
+    rt.fireEvent.change(usernameInput, { target: { value: inputValue } });
+    expect(wrap.getByPlaceholderText('username').value).toBe(inputValue);
+
+    rt.fireEvent.change(passwordInput, { target: { value: passValue } });
+    expect(wrap.getByPlaceholderText('password').value).toBe(passValue);
   });
 
   it('displays login button if username and password', () => {
